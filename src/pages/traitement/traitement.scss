@@ -94,3 +94,19 @@
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
+
+@media (max-width: 480px) {
+  .traitement-page {
+    align-items: flex-start;
+    padding: 1.5rem 1rem;
+  }
+
+  .traitement-card,
+  .erreur-card {
+    padding: 2rem 1.25rem;
+
+    h1 {
+      font-size: 1.3rem;
+    }
+  }
+}

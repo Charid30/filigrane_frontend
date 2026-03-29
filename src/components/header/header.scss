@@ -30,4 +30,20 @@
       }
     }
   }
+
+  @media (max-width: 480px) {
+    padding: 0.75rem 1rem;
+
+    &__logo {
+      font-size: 1.2rem;
+    }
+
+    &__nav {
+      gap: 1rem;
+
+      a {
+        font-size: 0.9rem;
+      }
+    }
+  }
 }

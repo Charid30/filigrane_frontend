@@ -73,3 +73,23 @@
   width: 100%;
   max-width: 320px;
 }
+
+@media (max-width: 480px) {
+  .resultat-page {
+    align-items: flex-start;
+    padding: 1.5rem 1rem;
+  }
+
+  .resultat-card {
+    padding: 2rem 1.25rem;
+
+    h1 {
+      font-size: 1.4rem;
+    }
+  }
+
+  .btn-download,
+  .btn-nouveau {
+    max-width: 100%;
+  }
+}

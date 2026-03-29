@@ -103,3 +103,31 @@
   color: #aaa;
   margin-top: 1rem;
 }
+
+@media (max-width: 768px) {
+  .a-propos-hero {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .a-propos-hero {
+    padding: 1.5rem 0 1rem;
+
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+  }
+
+  .card {
+    padding: 1.25rem 1rem;
+  }
+}

@@ -244,12 +244,47 @@
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 1.8rem;
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 1.5rem 0 1rem;
+
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    &__subtitle {
+      font-size: 0.95rem;
+    }
+  }
+
+  .card {
+    padding: 1.25rem 1rem;
   }
 
   .upload-zone {
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .predefinis__list {
+    gap: 0.4rem;
+  }
+
+  .predefinis__item {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .garanties {
+    grid-template-columns: 1fr;
   }
 }
