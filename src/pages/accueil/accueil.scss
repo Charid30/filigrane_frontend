@@ -1,0 +1,255 @@
+.hero {
+  text-align: center;
+  padding: 3rem 0 2rem;
+
+  h1 {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+  }
+
+  &__subtitle {
+    max-width: 620px;
+    margin: 1rem auto 0;
+    color: #555;
+    font-size: 1.05rem;
+  }
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+/* Zone d'upload */
+.upload-zone {
+  border: 2px dashed #ccc;
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 1.5rem;
+
+  &:hover,
+  &.drag-over {
+    border-color: var(--color-primary);
+    background-color: rgba(0, 154, 68, 0.04);
+  }
+
+  &.has-file {
+    border-color: var(--color-primary);
+    border-style: solid;
+    background-color: rgba(0, 154, 68, 0.03);
+  }
+
+  &__upload-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  &__placeholder p {
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+
+  &__formats {
+    font-size: 0.85rem;
+    color: #999;
+  }
+
+  &__file {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  &__file-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  &__file-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__filename {
+    font-weight: 600;
+    color: var(--color-text);
+    word-break: break-all;
+  }
+
+  &__filesize {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 0.2rem;
+  }
+
+  &__remove {
+    background: none;
+    border: 1px solid #ddd;
+    color: #999;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    transition: all 0.2s;
+    flex-shrink: 0;
+
+    &:hover {
+      background-color: #fee;
+      border-color: var(--color-secondary);
+      color: var(--color-secondary);
+    }
+  }
+}
+
+/* Message d'erreur */
+.erreur {
+  color: var(--color-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  padding: 0.6rem 1rem;
+  background-color: rgba(239, 43, 45, 0.05);
+  border-left: 3px solid var(--color-secondary);
+  border-radius: 4px;
+}
+
+/* Formulaire */
+.form-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+
+  .required {
+    color: var(--color-secondary);
+  }
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #ddd;
+  border-radius: var(--border-radius);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+
+  &:focus {
+    border-color: var(--color-primary);
+  }
+}
+
+.filigrane-section {
+  margin-bottom: 1.75rem;
+}
+
+/* Textes prédéfinis */
+.predefinis {
+  margin-top: 1rem;
+
+  &__label {
+    font-size: 0.875rem;
+    color: #777;
+    margin-bottom: 0.6rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__item {
+    padding: 0.4rem 0.9rem;
+    border: 1.5px solid #ddd;
+    border-radius: 20px;
+    background: none;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: 0.82rem;
+    color: #555;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    &.selected {
+      border-color: var(--color-primary);
+      background-color: var(--color-primary);
+      color: white;
+    }
+  }
+}
+
+/* Bouton submit */
+.btn-submit {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.05rem;
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+
+    &:hover {
+      background-color: #ccc;
+    }
+  }
+}
+
+/* Garanties */
+.garanties {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+
+  &__item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: var(--color-white);
+    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+  }
+
+  &__icon {
+    font-size: 1.75rem;
+    flex-shrink: 0;
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: #666;
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .upload-zone {
+    padding: 1.5rem;
+  }
+}

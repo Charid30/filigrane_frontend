@@ -1,0 +1,29 @@
+<div class="container resultat-page">
+  <div class="resultat-card">
+
+    <div class="resultat-card__success">✓</div>
+    <h1>Votre document est prêt !</h1>
+    <p class="resultat-card__filename">{{ fileName() }}</p>
+
+    <div class="resultat-card__actions">
+      <button class="btn-primary btn-download" (click)="telecharger()" type="button">
+        ⬇ Télécharger le document
+      </button>
+
+      @if (telechargementEffectue()) {
+        <p class="resultat-card__confirmation">
+          ✓ Téléchargement lancé. Le fichier sera supprimé du serveur automatiquement.
+        </p>
+      }
+
+      <button class="btn-secondary btn-nouveau" (click)="nouveauDocument()" type="button">
+        ↩ Filigraner un autre document
+      </button>
+    </div>
+
+    <div class="resultat-card__info">
+      <p>🔒 Ce fichier sera automatiquement supprimé de nos serveurs après votre téléchargement.</p>
+    </div>
+
+  </div>
+</div>

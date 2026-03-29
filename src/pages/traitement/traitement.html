@@ -1,0 +1,29 @@
+<div class="container traitement-page">
+
+  @if (!erreur()) {
+    <div class="traitement-card">
+      <div class="traitement-card__icon">⚙</div>
+      <h1>Traitement en cours</h1>
+      <p class="traitement-card__etape">{{ etape() }}</p>
+
+      <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="progression()" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar__fill" [style.width.%]="progression()"></div>
+      </div>
+      <span class="progress-bar__label">{{ progression() }} %</span>
+
+      <p class="traitement-card__info">
+        🔒 Vos données ne sont pas conservées sur le serveur.
+      </p>
+    </div>
+  } @else {
+    <div class="erreur-card">
+      <span class="erreur-card__icon">⚠</span>
+      <h1>Erreur de traitement</h1>
+      <p>{{ erreur() }}</p>
+      <button class="btn-primary" (click)="retourAccueil()" type="button">
+        ← Retour à l'accueil
+      </button>
+    </div>
+  }
+
+</div>

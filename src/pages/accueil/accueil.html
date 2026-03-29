@@ -1,0 +1,122 @@
+<div class="container">
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Protégez vos documents</h1>
+    <p class="hero__subtitle">
+      Apposez un filigrane personnalisé sur vos documents PDF, JPG ou PNG en quelques secondes.
+      Gratuit, sans inscription, aucune donnée conservée.
+    </p>
+  </section>
+
+  <!-- Formulaire principal -->
+  <section class="card">
+
+    <!-- Zone d'upload -->
+    <div
+      class="upload-zone"
+      [class.drag-over]="isDragOver()"
+      [class.has-file]="fichierSelectionne"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave()"
+      (drop)="onDrop($event)"
+      (click)="fileInput.click()"
+      role="button"
+      tabindex="0"
+      aria-label="Zone de dépôt de document"
+    >
+      <input #fileInput type="file" accept=".pdf,.jpg,.jpeg,.png" (change)="onFileSelected($event)" hidden />
+
+      @if (fichierSelectionne) {
+        <div class="upload-zone__file">
+          <span class="upload-zone__file-icon">📄</span>
+          <div class="upload-zone__file-info">
+            <span class="upload-zone__filename">{{ nomFichier }}</span>
+            <span class="upload-zone__filesize">{{ tailleFichier }}</span>
+          </div>
+          <button
+            class="upload-zone__remove"
+            (click)="$event.stopPropagation(); supprimerFichier()"
+            title="Supprimer le fichier"
+            aria-label="Supprimer le fichier"
+          >✕</button>
+        </div>
+      } @else {
+        <div class="upload-zone__placeholder">
+          <span class="upload-zone__upload-icon">⬆</span>
+          <p>Glissez votre document ici ou <strong>cliquez pour parcourir</strong></p>
+          <span class="upload-zone__formats">PDF, JPG, PNG — 10 Mo maximum</span>
+        </div>
+      }
+    </div>
+
+    @if (erreur()) {
+      <p class="erreur" role="alert">⚠ {{ erreur() }}</p>
+    }
+
+    <!-- Texte du filigrane -->
+    <div class="filigrane-section">
+      <label for="texteFiligrane" class="form-label">Texte du filigrane <span class="required">*</span></label>
+      <input
+        id="texteFiligrane"
+        type="text"
+        class="form-input"
+        placeholder="Ex : Copie non valable — Original à fournir sur demande"
+        [(ngModel)]="texteFiligrane"
+        maxlength="120"
+        aria-required="true"
+      />
+
+      <!-- Textes prédéfinis -->
+      <div class="predefinis">
+        <p class="predefinis__label">Textes suggérés :</p>
+        <div class="predefinis__list">
+          @for (texte of textesPredefinis; track texte) {
+            <button
+              class="predefinis__item"
+              [class.selected]="texteFiligrane === texte"
+              (click)="selectionnerTexte(texte)"
+              type="button"
+            >{{ texte }}</button>
+          }
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="btn-primary btn-submit"
+      (click)="soumettre()"
+      [disabled]="!peutSoumettre"
+      type="button"
+    >
+      Apposer le filigrane →
+    </button>
+
+  </section>
+
+  <!-- Bannière informations -->
+  <section class="garanties">
+    <div class="garanties__item">
+      <span class="garanties__icon">🔒</span>
+      <div>
+        <strong>Aucune donnée conservée</strong>
+        <p>Vos documents sont supprimés immédiatement après téléchargement.</p>
+      </div>
+    </div>
+    <div class="garanties__item">
+      <span class="garanties__icon">⚡</span>
+      <div>
+        <strong>Traitement instantané</strong>
+        <p>Votre document filigrané est prêt en moins de 5 secondes.</p>
+      </div>
+    </div>
+    <div class="garanties__item">
+      <span class="garanties__icon">🆓</span>
+      <div>
+        <strong>100 % gratuit</strong>
+        <p>Aucune inscription, aucun abonnement requis.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
