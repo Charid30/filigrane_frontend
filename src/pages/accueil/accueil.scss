@@ -282,6 +282,10 @@
   .predefinis__item {
     font-size: 0.78rem;
     padding: 0.35rem 0.7rem;
+
+    &:not(:first-child) {
+      display: none;
+    }
   }
 
   .garanties {

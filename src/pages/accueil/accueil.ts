@@ -20,11 +20,11 @@ export class Accueil {
   readonly TAILLE_MAX = 10 * 1024 * 1024;
 
   readonly textesPredefinis = [
+    'Dossier de candidature',
     'Destiné exclusivement au dossier de location',
     'Document fourni — usage unique',
     'Copie non valable — Original à fournir sur demande',
     'Document réservé à l\'usage administratif',
-    'Dossier de candidature',
     'Usage bancaire uniquement',
     'Document fourni dans le cadre d\'une demande de visa',
   ];
