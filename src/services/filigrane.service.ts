@@ -46,6 +46,21 @@ export class FiligraneService {
     return this.http.post(`${this.API_URL}/filigrane`, formData, { responseType: 'blob' });
   }
 
+  /** Avec responseType 'blob', le corps JSON des erreurs arrive aussi en Blob : on le lit pour afficher le message du serveur. */
+  async lireErreur(err: any): Promise<string> {
+    const defaut = 'Une erreur est survenue lors du traitement. Veuillez réessayer.';
+    // Statut 0 : la requête n'a jamais atteint le serveur (hors ligne, ou bloquée par une extension du navigateur)
+    if (err?.status === 0) {
+      return navigator.onLine
+        ? 'La requête a été bloquée par votre navigateur. Désactivez votre bloqueur de publicités (ou la protection contre le suivi) pour ce site, ou réessayez en navigation privée.'
+        : 'Vous semblez hors ligne. Vérifiez votre connexion internet puis réessayez.';
+    }
+    if (err?.error instanceof Blob) {
+      try { return JSON.parse(await err.error.text())?.erreur || defaut; } catch { return defaut; }
+    }
+    return err?.error?.erreur || defaut;
+  }
+
   setResult(blob: Blob, fileName: string) {
     this._resultBlob.set(blob);
     this._resultFileName.set(fileName);

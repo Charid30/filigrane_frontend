@@ -56,9 +56,9 @@ export class Traitement implements OnInit {
         this.etape.set('Terminé !');
         setTimeout(() => this.router.navigate(['/resultat']), 500);
       },
-      error: () => {
+      error: async (err) => {
         this.timers.forEach(clearTimeout);
-        this.erreur.set('Une erreur est survenue lors du traitement. Veuillez réessayer.');
+        this.erreur.set(await this.filigraneService.lireErreur(err));
       },
     });
   }
